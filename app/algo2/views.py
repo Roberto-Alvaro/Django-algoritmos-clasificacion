@@ -23,12 +23,12 @@ def distanciaEu(df,x1,x2,x3):
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import post1
+from .models import Dato
 import math
 
 # Create your views here.
-def algKNN_list(request):
-    return render(request, 'alg1/algKNN.html')
+def algoKNN_list(request):
+    return render(request, 'index_algo2.html')
 
 def buscar(request):
     if request.GET["k"].isdigit() and request.GET["x1"].isdigit() and request.GET["x2"].isdigit() and request.GET["x3"].isdigit():
@@ -36,7 +36,7 @@ def buscar(request):
         x1 = int(request.GET["x1"])
         x2 = int(request.GET["x2"])
         x3 = int(request.GET["x3"])
-        consulta = post1.objects.all()
+        consulta = Dato.objects.all()
         listDist = calculaDist(consulta, x1, x2, x3)
         equivalente = varEquivalente(consulta)
         contexto = zip(listDist, equivalente)
@@ -44,7 +44,7 @@ def buscar(request):
         contado = contar(contexto, k)
         referencia = refe(contexto, contado, k)
         mensaje = referencia
-        return render(request, 'alg1/resultado.html', {'resultado': referencia})
+        return render(request, 'algo2/index_algo2.html', {'resultado': referencia})
     else:
         mensaje = "Te falto llenar o llenaste incorrectamente, recuerda que deben ser valores numericos"
     return HttpResponse(mensaje)
