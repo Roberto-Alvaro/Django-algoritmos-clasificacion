@@ -1,6 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path, include
+from algo1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -9,4 +10,5 @@ urlpatterns = [
     path('', include('algo1.urls')),
     path('', include('algo2.urls')),
     path('', include('algo3.urls')),
+    path('buscar/', views.buscar),
 ]
