@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Dato
+from prueba1.models import Dato
 
 def muestra_datos(request):
     consulta = Dato.objects.all()
