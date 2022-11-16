@@ -14,4 +14,4 @@ def __str__(self):
     return str(self.x1) + ' , ' + str(self.x2) + ' , ' + str(self.x3) + ' , ' + str(self.x4)
 
 #f = open(r'/Users/hsim28/Desktop/entornoVirtualbeto/muestra2.txt', 'r')
-#from prueba3.models import Dato
+#from prueba3.models import Dato"""

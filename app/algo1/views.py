@@ -39,7 +39,7 @@ def distanciaEu(df,x1,x2,x3):
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Dato
+from prueba1.models import Dato
 import math
 
 # Create your views here.
