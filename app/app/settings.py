@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'prueba1',
     'inicio',
     'algo1',
-    'algo2',
-    'algo3',
 ]
 
 MIDDLEWARE = [

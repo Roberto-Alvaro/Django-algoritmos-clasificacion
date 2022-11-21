@@ -1,14 +1,10 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from algo1 import views
+#from algo1 import views
+#from alg1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prueba1/', include('prueba1.urls')),
-    path('', include('inicio.urls')),
-    path('', include('algo1.urls')),
-    path('', include('algo2.urls')),
-    path('', include('algo3.urls')),
-    path('buscar/', views.buscar),
+    path('', include('prueba3.urls')),
 ]
