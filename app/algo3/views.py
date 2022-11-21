@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+"""from django.http import HttpResponse
 from django.shortcuts import render
 from prueba1.models import Dato
 import math
@@ -69,12 +69,12 @@ def refe(contexto, contado, k):
         elif cont == k-1:
             break
         cont = cont + 1
-    return variable    
+    return variable    """
 
 
 
 
-"""from django.shortcuts import render
+from django.shortcuts import render
 from prueba1.models import Dato
 
 def muestra_datos(request):
@@ -88,4 +88,4 @@ def suma(val):
     listSum = []
     for i in val:
         listSum.append(i.x1 + i.x3 + i.x4)
-    return listSum"""
+    return listSum
