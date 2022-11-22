@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import post2
+from .models import Dato
 from django.http import HttpResponse
 import math
 from numpy import mean, var, exp
@@ -25,7 +25,7 @@ def index(request):
     return render(request, 'app1/post_list.html', cont)"""
     
 def muestra_datos(request):
-    consulta = post2.objects.all()
+    consulta = Dato.objects.all()
     LisSum = suma(consulta)
     contexto = zip(consulta, LisSum)
     return render(request, 'app1/post_list.html', {'contexto':contexto})
@@ -45,7 +45,7 @@ def algoritmo_knn(request):
         y = int(request.POST['y'])
         z = int(request.POST['z'])
         k = int(request.POST['k'])
-        db = post2.objects.all()
+        db = Dato.objects.all()
         print(k,x,y,z)
         distancia = []
         for i in range(len(db)):
@@ -66,8 +66,8 @@ def algoritmo_knn(request):
     return render(request, 'app1/knn.html', cont)
 
 def algoritmo_cbi(request):
-    bd = list(post2.objects.all())
-    new_bd = post2.objects.values('x2','x1','x3','x4').order_by('x2')
+    bd = list(Dato.objects.all())
+    new_bd = Dato.objects.values('x2','x1','x3','x4').order_by('x2')
     letra=[]
     bd_final={}
     probabilidad=""
@@ -77,7 +77,7 @@ def algoritmo_cbi(request):
         if bd[i].x2 in letra:
             cont+=1
         else:
-            valor = post2.objects.filter(x2=bd[i].x2)
+            valor = Dato.objects.filter(x2=bd[i].x2)
             letra.append(bd[i].x2)
             suma_num1=[]
             suma_num3=[]
@@ -158,7 +158,7 @@ def interpretar(request):
     if request.GET["x1"].isdigit() and request.GET["x2"].isdigit():
         x1 = int(request.GET["x1"])
         x2 = int(request.GET["x2"])
-        datos = post2.objects.all()
+        datos = Dato.objects.all()
         b = calcConstante(datos)
         resultado  = valorReferente(datos, x1, x2, b)
         return render(request, 'app1/equivalente.html', {'consulta': resultado} )
