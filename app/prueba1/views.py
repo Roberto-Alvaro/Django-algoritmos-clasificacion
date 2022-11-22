@@ -28,7 +28,7 @@ def muestra_datos(request):
     consulta = Dato.objects.all()
     LisSum = suma(consulta)
     contexto = zip(consulta, LisSum)
-    return render(request, 'app1/post_list.html', {'contexto':contexto})
+    return render(request, 'prueba1/post_list.html', {'contexto':contexto})
 
 def suma(val):
     listSum = []
@@ -39,7 +39,7 @@ def suma(val):
 def algoritmo_knn(request):
     if request.method == 'GET':
         print('enviando datos')
-        return render(request, 'app1/knn.html', {})
+        return render(request, 'prueba1/knn.html', {})
     else:
         x = int(request.POST['x'])
         y = int(request.POST['y'])
@@ -63,7 +63,7 @@ def algoritmo_knn(request):
                 letras.append(i[0])
                 knn[i[0]]=1
         cont['knn']=knn
-    return render(request, 'app1/knn.html', cont)
+    return render(request, 'prueba1/knn.html', cont)
 
 def algoritmo_cbi(request):
     bd = list(Dato.objects.all())
@@ -106,8 +106,8 @@ def algoritmo_cbi(request):
         probabilidad = post_posteriori(para_evidencia,evidcia,letra)
         cont = {'letra': probabilidad}
     else:
-        return render(request, 'app1/algoritmo_cbi.html', {})
-    return render(request, 'app1/algoritmo_cbi.html', cont)
+        return render(request, 'prueba1/algoritmo_cbi.html', {})
+    return render(request, 'prueba1/algoritmo_cbi.html', cont)
 
 def pre_posteriori(media1,media3,media4,var1,var2,var3,x,y,z):
     var1 = random.randint(1, 10)
@@ -152,7 +152,7 @@ def calcular_varianza(arr, is_sample=False):
     return variance
 
 def regresionLog(request):
-    return render(request, 'app1/algoritmo_rl.html')
+    return render(request, 'prueba1/algoritmo_rl.html')
 
 def interpretar(request):
     if request.GET["x1"].isdigit() and request.GET["x2"].isdigit():
@@ -161,7 +161,7 @@ def interpretar(request):
         datos = Dato.objects.all()
         b = calcConstante(datos)
         resultado  = valorReferente(datos, x1, x2, b)
-        return render(request, 'app1/equivalente.html', {'consulta': resultado} )
+        return render(request, 'prueba1/equivalente.html', {'consulta': resultado} )
     else:
         mensaje = "Te falto llenar o llenaste incorrectamente, recuerda que deben ser valores numericos"
     return HttpResponse(mensaje)
