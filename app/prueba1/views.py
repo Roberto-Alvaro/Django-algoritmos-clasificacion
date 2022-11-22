@@ -10,7 +10,7 @@ import random
 # Create your views here.
 
 def index(request):
-    return render(request, 'app1/index.html', {})
+    return render(request, 'prueba1/index.html', {})
 
 """def post_list(request):
     consulta = post2.objects.all()
