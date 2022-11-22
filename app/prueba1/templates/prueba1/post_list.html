@@ -1,0 +1,43 @@
+{% extends 'app1/base.html' %}
+
+{% block title%}Base de Datos{% endblock title %}
+
+{% block content %}
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">x1</th>
+            <th scope="col">x2</th>
+            <th scope="col">x3</th>
+            <th scope="col">x4</th>
+            <th scope="col">Suma</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for var,suma in contexto %}
+        <tr id="tabla1">
+
+            <td>{{var.x1}}</td>
+            <td>{{var.x2}}</td>
+            <td>{{var.x3}}</td>
+            <td>{{var.x4}}</td>
+            <td>{{suma}}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<table class="table table-dark">
+    <thead>
+        <th scope="col">Resultados</th>
+    </thead>
+    <tbody>
+        {%for val in suma%}
+        <tr id="tabla2">
+            <td>{{val}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
